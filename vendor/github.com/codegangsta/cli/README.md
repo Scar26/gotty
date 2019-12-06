@@ -1,13 +1,12 @@
-cli
-===
+# cli
 
-[![Build Status](https://travis-ci.org/urfave/cli.svg?branch=master)](https://travis-ci.org/urfave/cli)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/rtgk5xufi932pb2v?svg=true)](https://ci.appveyor.com/project/urfave/cli)
-[![GoDoc](https://godoc.org/github.com/urfave/cli?status.svg)](https://godoc.org/github.com/urfave/cli)
+[![Build Status](https://travis-ci.org/codegangsta/cli.svg?branch=master)](https://travis-ci.org/codegangsta/cli)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/rtgk5xufi932pb2v?svg=true)](https://ci.appveyor.com/project/codegangsta/cli)
+[![GoDoc](https://godoc.org/github.com/codegangsta/cli?status.svg)](https://godoc.org/github.com/codegangsta/cli)
 [![codebeat](https://codebeat.co/badges/0a8f30aa-f975-404b-b878-5fab3ae1cc5f)](https://codebeat.co/projects/github-com-urfave-cli)
-[![Go Report Card](https://goreportcard.com/badge/urfave/cli)](https://goreportcard.com/report/urfave/cli)
-[![top level coverage](https://gocover.io/_badge/github.com/urfave/cli?0 "top level coverage")](http://gocover.io/github.com/urfave/cli) /
-[![altsrc coverage](https://gocover.io/_badge/github.com/urfave/cli/altsrc?0 "altsrc coverage")](http://gocover.io/github.com/urfave/cli/altsrc)
+[![Go Report Card](https://goreportcard.com/badge/codegangsta/cli)](https://goreportcard.com/report/codegangsta/cli)
+[![top level coverage](https://gocover.io/_badge/github.com/codegangsta/cli?0 "top level coverage")](http://gocover.io/github.com/codegangsta/cli) /
+[![altsrc coverage](https://gocover.io/_badge/github.com/codegangsta/cli/altsrc?0 "altsrc coverage")](http://gocover.io/github.com/codegangsta/cli/altsrc)
 
 **Notice:** This is the library formerly known as
 `github.com/codegangsta/cli` -- Github will automatically redirect requests
@@ -21,30 +20,30 @@ applications in an expressive way.
 
 - [Overview](#overview)
 - [Installation](#installation)
-  * [Supported platforms](#supported-platforms)
-  * [Using the `v2` branch](#using-the-v2-branch)
-  * [Pinning to the `v1` releases](#pinning-to-the-v1-releases)
+  - [Supported platforms](#supported-platforms)
+  - [Using the `v2` branch](#using-the-v2-branch)
+  - [Pinning to the `v1` releases](#pinning-to-the-v1-releases)
 - [Getting Started](#getting-started)
 - [Examples](#examples)
-  * [Arguments](#arguments)
-  * [Flags](#flags)
-    + [Placeholder Values](#placeholder-values)
-    + [Alternate Names](#alternate-names)
-    + [Ordering](#ordering)
-    + [Values from the Environment](#values-from-the-environment)
-    + [Values from alternate input sources (YAML, TOML, and others)](#values-from-alternate-input-sources-yaml-toml-and-others)
-  * [Subcommands](#subcommands)
-  * [Subcommands categories](#subcommands-categories)
-  * [Exit code](#exit-code)
-  * [Bash Completion](#bash-completion)
-    + [Enabling](#enabling)
-    + [Distribution](#distribution)
-    + [Customization](#customization)
-  * [Generated Help Text](#generated-help-text)
-    + [Customization](#customization-1)
-  * [Version Flag](#version-flag)
-    + [Customization](#customization-2)
-    + [Full API Example](#full-api-example)
+  - [Arguments](#arguments)
+  - [Flags](#flags)
+    - [Placeholder Values](#placeholder-values)
+    - [Alternate Names](#alternate-names)
+    - [Ordering](#ordering)
+    - [Values from the Environment](#values-from-the-environment)
+    - [Values from alternate input sources (YAML, TOML, and others)](#values-from-alternate-input-sources-yaml-toml-and-others)
+  - [Subcommands](#subcommands)
+  - [Subcommands categories](#subcommands-categories)
+  - [Exit code](#exit-code)
+  - [Bash Completion](#bash-completion)
+    - [Enabling](#enabling)
+    - [Distribution](#distribution)
+    - [Customization](#customization)
+  - [Generated Help Text](#generated-help-text)
+    - [Customization](#customization-1)
+  - [Version Flag](#version-flag)
+    - [Customization](#customization-2)
+    - [Full API Example](#full-api-example)
 - [Contribution Guidelines](#contribution-guidelines)
 
 <!-- tocstop -->
@@ -52,7 +51,7 @@ applications in an expressive way.
 ## Overview
 
 Command line apps are usually so tiny that there is absolutely no reason why
-your code should *not* be self-documenting. Things like generating help text and
+your code should _not_ be self-documenting. Things like generating help text and
 parsing command flags/options should not hinder productivity when writing a
 command line app.
 
@@ -61,16 +60,18 @@ organized, and expressive!
 
 ## Installation
 
-Make sure you have a working Go environment.  Go version 1.2+ is supported.  [See
+Make sure you have a working Go environment. Go version 1.2+ is supported. [See
 the install instructions for Go](http://golang.org/doc/install.html).
 
 To install cli, simply run:
+
 ```
-$ go get github.com/urfave/cli
+$ go get github.com/codegangsta/cli
 ```
 
 Make sure your `PATH` includes the `$GOPATH/bin` directory so your commands can
 be easily used:
+
 ```
 export PATH=$PATH:$GOPATH/bin
 ```
@@ -78,7 +79,7 @@ export PATH=$PATH:$GOPATH/bin
 ### Supported platforms
 
 cli is tested against multiple versions of Go on Linux, and against the latest
-released version of Go on OS X and Windows.  For full details, see
+released version of Go on OS X and Windows. For full details, see
 [`./.travis.yml`](./.travis.yml) and [`./appveyor.yml`](./appveyor.yml).
 
 ### Using the `v2` branch
@@ -86,21 +87,21 @@ released version of Go on OS X and Windows.  For full details, see
 **Warning**: The `v2` branch is currently unreleased and considered unstable.
 
 There is currently a long-lived branch named `v2` that is intended to land as
-the new `master` branch once development there has settled down.  The current
+the new `master` branch once development there has settled down. The current
 `master` branch (mirrored as `v1`) is being manually merged into `v2` on
 an irregular human-based schedule, but generally if one wants to "upgrade" to
-`v2` *now* and accept the volatility (read: "awesomeness") that comes along with
+`v2` _now_ and accept the volatility (read: "awesomeness") that comes along with
 that, please use whatever version pinning of your preference, such as via
 `gopkg.in`:
 
 ```
-$ go get gopkg.in/urfave/cli.v2
+$ go get gopkg.in/codegangsta/cli.v2
 ```
 
-``` go
+```go
 ...
 import (
-  "gopkg.in/urfave/cli.v2" // imports as package "cli"
+  "gopkg.in/codegangsta/cli.v2" // imports as package "cli"
 )
 ...
 ```
@@ -112,13 +113,13 @@ to avoid any unexpected compatibility pains once `v2` becomes `master`, then
 pinning to `v1` is an acceptable option, e.g.:
 
 ```
-$ go get gopkg.in/urfave/cli.v1
+$ go get gopkg.in/codegangsta/cli.v1
 ```
 
-``` go
+```go
 ...
 import (
-  "gopkg.in/urfave/cli.v1" // imports as package "cli"
+  "gopkg.in/codegangsta/cli.v1" // imports as package "cli"
 )
 ...
 ```
@@ -134,13 +135,14 @@ discovery. So a cli app can be as little as one line of code in `main()`.
   "args": ["&#45;&#45;help"],
   "output": "A new cli application"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -154,14 +156,15 @@ action to execute and some help documentation:
 <!-- {
   "output": "boom! I say!"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "fmt"
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -192,14 +195,15 @@ Start by creating a directory named `greet`, and within it, add a file,
 <!-- {
   "output": "Hello friend!"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "fmt"
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -255,14 +259,15 @@ You can lookup arguments by calling the `Args` function on `cli.Context`, e.g.:
 <!-- {
   "output": "Hello \""
 } -->
-``` go
+
+```go
 package main
 
 import (
   "fmt"
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -284,14 +289,15 @@ Setting and querying flags is simple.
 <!-- {
   "output": "Hello Nefertiti"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "fmt"
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -328,14 +334,15 @@ scanned.
 <!-- {
   "output": "Hello someone"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
   "fmt"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -369,7 +376,7 @@ func main() {
 }
 ```
 
-See full list of flags at http://godoc.org/github.com/urfave/cli
+See full list of flags at http://godoc.org/github.com/codegangsta/cli
 
 #### Placeholder Values
 
@@ -382,13 +389,14 @@ For example this:
   "args": ["&#45;&#45;help"],
   "output": "&#45;&#45;config FILE, &#45;c FILE"
 } -->
+
 ```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -423,13 +431,14 @@ list for the `Name`. e.g.
   "args": ["&#45;&#45;help"],
   "output": "&#45;&#45;lang value, &#45;l value.*language for the greeting.*default: \"english\""
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -463,14 +472,15 @@ For example this:
   "args": ["&#45;&#45;help"],
   "output": "Load configuration from FILE\n.*Language for the greeting.*"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
   "sort"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -503,19 +513,20 @@ Will result in help output like:
 
 #### Values from the Environment
 
-You can also have the default value set from the environment via `EnvVar`.  e.g.
+You can also have the default value set from the environment via `EnvVar`. e.g.
 
 <!-- {
   "args": ["&#45;&#45;help"],
   "output": "language for the greeting.*APP_LANG"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -541,13 +552,14 @@ environment variable that resolves is used as the default.
   "args": ["&#45;&#45;help"],
   "output": "language for the greeting.*LEGACY_COMPAT_LANG.*APP_LANG.*LANG"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -572,26 +584,27 @@ There is a separate package altsrc that adds support for getting flag values
 from other file input sources.
 
 Currently supported input source formats:
-* YAML
-* TOML
+
+- YAML
+- TOML
 
 In order to get values for a flag from an alternate input source the following
 code would be added to wrap an existing cli.Flag like below:
 
-``` go
+```go
   altsrc.NewIntFlag(cli.IntFlag{Name: "test"})
 ```
 
 Initialization must also occur for these flags. Below is an example initializing
 getting data from a yaml file below.
 
-``` go
+```go
   command.Before = altsrc.InitInputSourceWithContext(command.Flags, NewYamlSourceFromFlagFunc("load"))
 ```
 
 The code above will use the "load" string as a flag name to get the file name of
-a yaml file from the cli.Context.  It will then use that file name to initialize
-the yaml input source for any flags that are defined on that command.  As a note
+a yaml file from the cli.Context. It will then use that file name to initialize
+the yaml input source for any flags that are defined on that command. As a note
 the "load" flag used would also have to be defined on the command flags in order
 for this code snipped to work.
 
@@ -605,15 +618,16 @@ Here is a more complete sample of a command using YAML support:
   "args": ["test-cmd", "&#45;&#45;help"],
   "output": "&#45&#45;test value.*default: 0"
 } -->
-``` go
+
+```go
 package notmain
 
 import (
   "fmt"
   "os"
 
-  "github.com/urfave/cli"
-  "github.com/urfave/cli/altsrc"
+  "github.com/codegangsta/cli"
+  "github.com/codegangsta/cli/altsrc"
 )
 
 func main() {
@@ -644,6 +658,7 @@ Subcommands can be defined for a more git-like command line app.
   "args": ["template", "add"],
   "output": "new task template: .+"
 } -->
+
 ```go
 package main
 
@@ -651,7 +666,7 @@ import (
   "fmt"
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -719,7 +734,7 @@ package main
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -757,17 +772,17 @@ COMMANDS:
 ### Exit code
 
 Calling `App.Run` will not automatically call `os.Exit`, which means that by
-default the exit code will "fall through" to being `0`.  An explicit exit code
-may be set by returning a non-nil error that fulfills `cli.ExitCoder`, *or* a
+default the exit code will "fall through" to being `0`. An explicit exit code
+may be set by returning a non-nil error that fulfills `cli.ExitCoder`, _or_ a
 `cli.MultiError` that includes an error that fulfills `cli.ExitCoder`, e.g.:
 
-``` go
+```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -792,7 +807,7 @@ func main() {
 ### Bash Completion
 
 You can enable completion commands by setting the `EnableBashCompletion`
-flag on the `App` object.  By default, this setting will only auto-complete to
+flag on the `App` object. By default, this setting will only auto-complete to
 show an app's subcommands, but you can write your own completion methods for
 the App or its subcommands.
 
@@ -800,14 +815,15 @@ the App or its subcommands.
   "args": ["complete", "&#45;&#45;generate&#45;bash&#45;completion"],
   "output": "laundry"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "fmt"
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -872,13 +888,14 @@ The default bash completion flag (`--generate-bash-completion`) is defined as
   "args": ["&#45;&#45;compgen"],
   "output": "wat\nhelp\nh"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -906,7 +923,7 @@ or subcommand, and break execution.
 
 #### Customization
 
-All of the help text generation may be customized, and at multiple levels.  The
+All of the help text generation may be customized, and at multiple levels. The
 templates are exposed as variables `AppHelpTemplate`, `CommandHelpTemplate`, and
 `SubcommandHelpTemplate` which may be reassigned or augmented, and full override
 is possible by assigning a compatible func to the `cli.HelpPrinter` variable,
@@ -915,7 +932,8 @@ e.g.:
 <!-- {
   "output": "Ha HA.  I pwnd the help!!1"
 } -->
-``` go
+
+```go
 package main
 
 import (
@@ -923,7 +941,7 @@ import (
   "io"
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -977,13 +995,14 @@ setting `cli.HelpFlag`, e.g.:
   "args": ["&#45;&#45halp"],
   "output": "haaaaalp.*HALP"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -1012,13 +1031,14 @@ setting `cli.VersionFlag`, e.g.:
   "args": ["&#45;&#45print-version"],
   "output": "partay version 19\\.99\\.0"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func main() {
@@ -1040,14 +1060,15 @@ Alternatively, the version printer at `cli.VersionPrinter` may be overridden, e.
   "args": ["&#45;&#45version"],
   "output": "version=19\\.99\\.0 revision=fafafaf"
 } -->
-``` go
+
+```go
 package main
 
 import (
   "fmt"
   "os"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 var (
@@ -1069,12 +1090,13 @@ func main() {
 #### Full API Example
 
 **Notice**: This is a contrived (functioning) example meant strictly for API
-demonstration purposes.  Use of one's imagination is encouraged.
+demonstration purposes. Use of one's imagination is encouraged.
 
 <!-- {
   "output": "made it!\nPhew!"
 } -->
-``` go
+
+```go
 package main
 
 import (
@@ -1086,7 +1108,7 @@ import (
   "os"
   "time"
 
-  "github.com/urfave/cli"
+  "github.com/codegangsta/cli"
 )
 
 func init() {

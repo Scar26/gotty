@@ -29,7 +29,7 @@
   This is useful if you want to consider all "flags" after an argument as
   arguments rather than flags (the default behavior of the stdlib `flag`
   library). This is backported functionality from the [removal of the flag
-  reordering](https://github.com/urfave/cli/pull/398) in the unreleased version
+  reordering](https://github.com/codegangsta/cli/pull/398) in the unreleased version
   2
 - For formatted errors (those implementing `ErrorFormatter`), the errors will
   be formatted during output. Compatible with `pkg/errors`.
@@ -51,8 +51,8 @@
   would return `false` if a flag was specified in the environment rather than
   as an argument
 - Removed deprecation warnings to STDERR to avoid them leaking to the end-user
-- `altsrc`s import paths were updated to use `gopkg.in/urfave/cli.v1`. This
-  fixes issues that occurred when `gopkg.in/urfave/cli.v1` was imported as well
+- `altsrc`s import paths were updated to use `gopkg.in/codegangsta/cli.v1`. This
+  fixes issues that occurred when `gopkg.in/codegangsta/cli.v1` was imported as well
   as `altsrc` where Go would complain that the types didn't match
 
 ## [1.18.1] - 2016-08-28
@@ -100,7 +100,7 @@
   makes it easier to script around apps built using `cli` since they can trust
   that a 0 exit code indicated a successful execution.
 - cleanups based on [Go Report Card
-  feedback](https://goreportcard.com/report/github.com/urfave/cli)
+  feedback](https://goreportcard.com/report/github.com/codegangsta/cli)
 
 ## [1.16.1] - 2016-08-28
 ### Fixed
@@ -364,29 +364,29 @@ signature of `func(*cli.Context) error`, as defined by `cli.ActionFunc`.
 ### Added
 - Initial implementation.
 
-[Unreleased]: https://github.com/urfave/cli/compare/v1.18.0...HEAD
-[1.18.0]: https://github.com/urfave/cli/compare/v1.17.0...v1.18.0
-[1.17.0]: https://github.com/urfave/cli/compare/v1.16.0...v1.17.0
-[1.16.0]: https://github.com/urfave/cli/compare/v1.15.0...v1.16.0
-[1.15.0]: https://github.com/urfave/cli/compare/v1.14.0...v1.15.0
-[1.14.0]: https://github.com/urfave/cli/compare/v1.13.0...v1.14.0
-[1.13.0]: https://github.com/urfave/cli/compare/v1.12.0...v1.13.0
-[1.12.0]: https://github.com/urfave/cli/compare/v1.11.1...v1.12.0
-[1.11.1]: https://github.com/urfave/cli/compare/v1.11.0...v1.11.1
-[1.11.0]: https://github.com/urfave/cli/compare/v1.10.2...v1.11.0
-[1.10.2]: https://github.com/urfave/cli/compare/v1.10.1...v1.10.2
-[1.10.1]: https://github.com/urfave/cli/compare/v1.10.0...v1.10.1
-[1.10.0]: https://github.com/urfave/cli/compare/v1.9.0...v1.10.0
-[1.9.0]: https://github.com/urfave/cli/compare/v1.8.0...v1.9.0
-[1.8.0]: https://github.com/urfave/cli/compare/v1.7.1...v1.8.0
-[1.7.1]: https://github.com/urfave/cli/compare/v1.7.0...v1.7.1
-[1.7.0]: https://github.com/urfave/cli/compare/v1.6.0...v1.7.0
-[1.6.0]: https://github.com/urfave/cli/compare/v1.5.0...v1.6.0
-[1.5.0]: https://github.com/urfave/cli/compare/v1.4.1...v1.5.0
-[1.4.1]: https://github.com/urfave/cli/compare/v1.4.0...v1.4.1
-[1.4.0]: https://github.com/urfave/cli/compare/v1.3.1...v1.4.0
-[1.3.1]: https://github.com/urfave/cli/compare/v1.3.0...v1.3.1
-[1.3.0]: https://github.com/urfave/cli/compare/v1.2.0...v1.3.0
-[1.2.0]: https://github.com/urfave/cli/compare/v1.1.0...v1.2.0
-[1.1.0]: https://github.com/urfave/cli/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/urfave/cli/compare/v0.1.0...v1.0.0
+[Unreleased]: https://github.com/codegangsta/cli/compare/v1.18.0...HEAD
+[1.18.0]: https://github.com/codegangsta/cli/compare/v1.17.0...v1.18.0
+[1.17.0]: https://github.com/codegangsta/cli/compare/v1.16.0...v1.17.0
+[1.16.0]: https://github.com/codegangsta/cli/compare/v1.15.0...v1.16.0
+[1.15.0]: https://github.com/codegangsta/cli/compare/v1.14.0...v1.15.0
+[1.14.0]: https://github.com/codegangsta/cli/compare/v1.13.0...v1.14.0
+[1.13.0]: https://github.com/codegangsta/cli/compare/v1.12.0...v1.13.0
+[1.12.0]: https://github.com/codegangsta/cli/compare/v1.11.1...v1.12.0
+[1.11.1]: https://github.com/codegangsta/cli/compare/v1.11.0...v1.11.1
+[1.11.0]: https://github.com/codegangsta/cli/compare/v1.10.2...v1.11.0
+[1.10.2]: https://github.com/codegangsta/cli/compare/v1.10.1...v1.10.2
+[1.10.1]: https://github.com/codegangsta/cli/compare/v1.10.0...v1.10.1
+[1.10.0]: https://github.com/codegangsta/cli/compare/v1.9.0...v1.10.0
+[1.9.0]: https://github.com/codegangsta/cli/compare/v1.8.0...v1.9.0
+[1.8.0]: https://github.com/codegangsta/cli/compare/v1.7.1...v1.8.0
+[1.7.1]: https://github.com/codegangsta/cli/compare/v1.7.0...v1.7.1
+[1.7.0]: https://github.com/codegangsta/cli/compare/v1.6.0...v1.7.0
+[1.6.0]: https://github.com/codegangsta/cli/compare/v1.5.0...v1.6.0
+[1.5.0]: https://github.com/codegangsta/cli/compare/v1.4.1...v1.5.0
+[1.4.1]: https://github.com/codegangsta/cli/compare/v1.4.0...v1.4.1
+[1.4.0]: https://github.com/codegangsta/cli/compare/v1.3.1...v1.4.0
+[1.3.1]: https://github.com/codegangsta/cli/compare/v1.3.0...v1.3.1
+[1.3.0]: https://github.com/codegangsta/cli/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/codegangsta/cli/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/codegangsta/cli/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/codegangsta/cli/compare/v0.1.0...v1.0.0

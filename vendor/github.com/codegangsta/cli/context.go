@@ -73,7 +73,7 @@ func (c *Context) IsSet(name string) bool {
 		// whether a flag is set by non-standard means such as environment
 		// variables is avaliable.
 		//
-		// See https://github.com/urfave/cli/issues/294 for additional discussion
+		// See https://github.com/codegangsta/cli/issues/294 for additional discussion
 		flags := c.Command.Flags
 		if c.Command.Name == "" { // cannot == Command{} since it contains slice types
 			if c.App != nil {
